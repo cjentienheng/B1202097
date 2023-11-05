@@ -1,0 +1,43 @@
+def primeornot(n):
+    if n <= 1 :
+        return False
+    for i in range(2,n):
+        if n % i == 0:
+           return False
+    return True
+def findclosestprime(number):
+    if number <= 1:
+        return "輸入錯誤"
+    for i in range(number, 1,-1):
+        if primeornot(i):
+          return i
+    return("找不到最小質數")
+number = int(input("請輸入一個數字"))
+closestprime = findclosestprime(number)
+if type(closestprime) == int :
+  print(f"離{number}最近的質數是{closestprime}")
+else:
+  print(closestprime)
+
+
+a=(input("請輸入一段數字:"))
+b=a.split(',')
+d=[]
+for i in range(len(b)):
+  e=0
+  for j in range(len(b)):
+    if b[i]>b[j]:
+      e+=1
+  d.append(e)
+print(d)
+
+
+
+def a(boxes: str):
+  ans=[0]*len(boxes)
+  for i in range(len(boxes)):
+    for j in range(len(boxes)):
+      if boxes[j]=='1':
+        ans[i]+= abs(i-j)
+  return ans
+a(input("輸入一個由0和1組成的字串"))
